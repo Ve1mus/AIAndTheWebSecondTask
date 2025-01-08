@@ -8,8 +8,14 @@ def start():
     return render_template('start.html')
 
 @app.route("/result")
-def reversed():
+def result():
     
     result = render_template('result.html')
     return result
 
+
+@app.route("/error")
+def error():
+    
+    error = render_template('error.html')
+    return error
