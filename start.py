@@ -7,10 +7,9 @@ last_rev="none"
 def start():
     return render_template('start.html')
 
-@app.route("/reversed")
+@app.route("/result")
 def reversed():
-    rev = request.args['rev'][::-1]
-    resp = render_template('reversed.html', rev=rev, last_rev=last_rev)
-    last_rev = rev
+    
+    resp = render_template('result.html')
     return resp
 
