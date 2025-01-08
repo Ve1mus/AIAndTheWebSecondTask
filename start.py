@@ -10,6 +10,6 @@ def start():
 @app.route("/result")
 def reversed():
     
-    resp = render_template('result.html')
-    return resp
+    result = render_template('result.html')
+    return result
 
