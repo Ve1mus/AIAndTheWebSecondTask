@@ -2,3 +2,4 @@ myenv
 __pycache__
 index.json
 crawler.py
+unique_urls.json
