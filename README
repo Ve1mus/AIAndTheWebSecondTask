@@ -1,1 +1,20 @@
 to start site flask --app hello.py run
+## Features
+
+- **Web Crawler**: Collects and parses HTML pages from a specified domain.
+- **Indexing**: Uses the Whoosh library for efficient text indexing and searching.
+- **Search Functionality**: Allows users to search for specific terms and returns relevant results.
+- **User Interface**: A clean and simple web-based frontend for interacting with the search engine.
+
+---
+
+## Getting Started
+
+### Prerequisites
+Python 3.x
+Git
+whoosh 
+
+### Installation
+
+##clone the repository
