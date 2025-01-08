@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ReverseApp</title>
-    </head>
-    <body>
-        <h1>Reversed</h1>
-        <p>{{rev}}</p>
-    </body>
-</html>
+        <title>Search results</title>
+        <head>
+            <body>
+        <h1>Search Results</h1>
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <li>
+                    <a href="{{ result.url }}">{{ result.title }}</a>
+                    <p>{{ result.snippet }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found for your search.</p>
+    {% endif %}
+<a href="/">Back to Home</a>
+            </body>body>
+     <html></html>
+        
