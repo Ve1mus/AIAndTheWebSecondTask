@@ -1,23 +1,62 @@
+<!-- templates/result.html -->
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Search results</title>
-        <head>
-            <body>
-        <h1>Search Results</h1>
-    {% if results %}
-        <ul>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f0f0f0;
+        }
+        .results-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .result {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .result a {
+            font-size: 1.2em;
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        .result a:hover {
+            text-decoration: underline;
+        }
+        .snippet {
+            color: #545454;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <h2>Search Results for: "{{ query }}"</h2>
+
+        {% if results and results|length > 0 %}
             {% for result in results %}
-                <li>
-                    <a href="{{ result.url }}">{{ result.title }}</a>
-                    <p>{{ result.snippet }}</p>
-                </li>
+                <div class="result">
+                    <a href="{{ result.url }}" target="_blank">{{ result.title }}</a>
+                    <p class="snippet">{{ result.snippet|safe }}</p>
+                </div>
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>No results found for your search.</p>
-    {% endif %}
-<a href="/">Back to Home</a>
-            </body><body>
-     <html></html>
-        
+        {% else %}
+            <p>No results found for your search.</p>
+        {% endif %}
+
+        <a href="/" class="back-link">Back to Search</a>
+    </div>
+</body>
+</html>

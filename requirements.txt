@@ -1,4 +1,6 @@
-flask
-whoosh
-BeautifulSoup4
+Flask
 requests
+beautifulsoup4
+langdetect
+nltk
+whoosh

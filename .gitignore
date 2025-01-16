@@ -1,5 +1,6 @@
-myenv
-__pycache__
-index.json
-crawler.py
-unique_urls.json
+myenv/
+__pycache__/
+nltk_data/
+crawler.log
+indexdir/
+flask_app.log
