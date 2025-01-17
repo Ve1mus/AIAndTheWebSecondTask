@@ -1,20 +1,10 @@
 import sys
 import os
+# Let's say your actual Flask code is in '/home/u065/public_html/myproject'
+MY_PROJECT_PATH = "/home/u072/public_html/secondtask"
 
-# Add the project directory to the sys.path
-project_home = '/home/u072/public_html'
-if project_home not in sys.path:
-    sys.path.insert(0, project_home)
+sys.path.insert(0, MY_PROJECT_PATH)
+os.chdir(MY_PROJECT_PATH)
 
-# Set environment variables
-os.environ['FLASK_APP'] = 'start.py'
-os.environ['FLASK_ENV'] = 'production'
-
-# Activate the virtual environment
-activate_this = '/home/u072/public_html/myenv/bin/activate'
-with open(activate_this) as file_:
-    exec(file_.read(), dict(__file__=activate_this))
-
-# Import the Flask application
-from start import app as application
-
+from start import app
+application = app

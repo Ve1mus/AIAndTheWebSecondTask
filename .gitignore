@@ -1,6 +1,3 @@
 myenv/
-__pycache__/
-nltk_data/
 crawler.log
-indexdir/
 flask_app.log
