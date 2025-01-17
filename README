@@ -1,4 +1,3 @@
-to start site flask --app start.py run
 ## Features
 
 - **Web Crawler**: Collects and parses HTML pages from a specified domain.
