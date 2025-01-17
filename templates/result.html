@@ -1,47 +1,14 @@
 <!-- templates/result.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search Results</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            background-color: #f0f0f0;
-        }
-        .results-container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        .result {
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-        .result a {
-            font-size: 1.2em;
-            color: #1a0dab;
-            text-decoration: none;
-        }
-        .result a:hover {
-            text-decoration: underline;
-        }
-        .snippet {
-            color: #545454;
-        }
-        .back-link {
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="search-container">
+        <form action="{{ url_for('result') }}" method="get">
+            <input type="text" name="q" placeholder="Enter your query" value="{{ query }}" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
     <div class="results-container">
         <h2>Search Results for: "{{ query }}"</h2>
 
@@ -50,13 +17,21 @@
                 <div class="result">
                     <a href="{{ result.url }}" target="_blank">{{ result.title }}</a>
                     <p class="snippet">{{ result.snippet|safe }}</p>
+                    {% if result.meta_description %}
+                        <p class="meta-description">{{ result.meta_description }}</p>
+                    {% endif %}
                 </div>
             {% endfor %}
         {% else %}
             <p>No results found for your search.</p>
+            {% if suggestions and suggestions|length > 0 %}
+                <p>Did you mean:</p>
+                <ul>
+                    {% for suggestion in suggestions %}
+                        <li><a href="{{ url_for('result', q=suggestion) }}">{{ suggestion }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         {% endif %}
-
-        <a href="/" class="back-link">Back to Search</a>
     </div>
-</body>
-</html>
+{% endblock %}
