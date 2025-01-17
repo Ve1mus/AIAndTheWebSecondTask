@@ -11,9 +11,13 @@ to start site flask --app start.py run
 ## Getting Started
 
 ### Prerequisites
-Python 3.x
-Git
-whoosh 
+Flask
+requests
+beautifulsoup4
+langdetect
+nltk
+whoosh
+
 
 ### Installation
 
